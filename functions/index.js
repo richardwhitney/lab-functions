@@ -7,33 +7,38 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://lab-fyp-rw.firebaseio.com"
 });
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
- response.send("Hello from Firebase!");
-});
 
-exports.getTests = functions.https.onRequest((request, response) => {
+const express = require('express');
+const app = express();
+
+app.get('/tests', (request, response) => {
   admin.firestore()
     .collection('tests')
+    .orderBy('name')
     .get()
     .then((data) => {
       let tests = [];
       data.forEach(doc => {
-        tests.push(doc.data());
+        tests.push({
+          testId: doc.id,
+          name: doc.name,
+          description: doc.description,
+          referenceRange: doc.referenceRange,
+          requestForm: doc.requestForm,
+          specialNotes: doc.specialNotes,
+          specimenTypeVolume: doc.specimenTypeVolume,
+          turnaroundTime: doc.turnaroundTime
+        });
       });
       return response.json(tests);
     })
     .catch((err) => console.error("Error" + err));
-});
+})
 
-exports.createTest = functions.https.onRequest((request, response) => {
-  if (response.method !== 'POST') {
-    return response.status(400).json({error: 'Method not allowed'});
-  }
+app.post('/test', (request, response) => {
   const newTest = {
     name: request.body.name,
+    description: request.body.description,
     referenceRange: request.body.referenceRange,
     requestForm: request.body.requestForm,
     specialNotes: request.body.specialNotes,
@@ -53,3 +58,5 @@ exports.createTest = functions.https.onRequest((request, response) => {
       console.error(err);
     });
 });
+
+exports.api = functions.region('europe-west1').https.onRequest(app);
