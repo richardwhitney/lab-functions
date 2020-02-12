@@ -26,6 +26,23 @@ exports.getAllTests = (request, response) => {
     });
 };
 
+exports.getTest = (request, response) => {
+  let testData = {};
+  db.doc(`/tests/${request.params.testId}`).get()
+    .then(doc => {
+      if (!doc.exists) {
+        return response.status(404).json({error: 'Test not found'});
+      }
+      testData = doc.data();
+      testData.testId = doc.id;
+      return response.json(testData);
+    })
+    .catch(err => {
+      console.error(err);
+      response.status(500).json({error: err.code});
+    })
+};
+
 exports.createTest = (request, response) => {
   const newTest = {
     name: request.body.name,
@@ -46,4 +63,22 @@ exports.createTest = (request, response) => {
       response.status(500).json({ error: "Something went wrong" });
       console.error(err);
     });
+};
+
+exports.deleteTest = (request, response) => {
+  const test = db.doc(`/tests/${request.params.testId}`);
+  test.get()
+    .then(doc => {
+      if (!doc.exists) {
+        return response.status(404).json({error: 'Test not found'});
+      }
+      return test.delete();
+    })
+    .then(() => {
+      response.json({message: 'Test deleted successfully'});
+    })
+    .catch(err => {
+      console.error(err);
+      return response.status(500).json({error: err.code});
+    })
 };
