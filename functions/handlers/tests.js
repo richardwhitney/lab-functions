@@ -1,4 +1,5 @@
 const {db} = require('../utils/admin');
+const {validateTestData} = require('../utils/validators');
 
 exports.getAllTests = (request, response) => {
   db.collection("tests")
@@ -54,14 +55,17 @@ exports.createTest = (request, response) => {
     turnaroundTime: request.body.turnaroundTime
   };
 
-  const {valid, errors} = validateTestDate(newTest);
+  const {valid, errors} = validateTestData(newTest);
   if (!valid) {
     return response.status(400).json(errors);
   }
   db.collection("tests")
     .add(newTest)
     .then(doc => {
-      response.json({ message: `Document ${doc.id} created successfully` });
+      const responseTest = newTest;
+      responseTest.testId = doc.id;
+      response.json(responseTest
+      );
     })
     .catch(err => {
       response.status(500).json({ general: "Something went wrong" });

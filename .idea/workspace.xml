@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/handlers/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/tests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/utils/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/utils/validators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +51,7 @@
       <workItem from="1582047464479" duration="599000" />
       <workItem from="1582053670692" duration="5102000" />
       <workItem from="1582833796271" duration="611000" />
-      <workItem from="1583177352722" duration="4596000" />
+      <workItem from="1583177352722" duration="6357000" />
     </task>
     <servers />
   </component>
@@ -62,5 +63,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1647" y="467" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1583178787436" />
+    <state x="241" y="0" width="1024" height="685" key="dock-window-1" timestamp="1583360674682">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="241" y="0" width="1024" height="685" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1583360674682" />
   </component>
 </project>

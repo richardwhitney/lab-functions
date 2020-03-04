@@ -41,7 +41,7 @@ exports.validateLoginData = (data) => {
   }
 };
 
-exports.validateTestDate = (data) => {
+exports.validateTestData = (data) => {
   let errors = {};
   const emptyError = 'Must not be empty';
   if (isEmpty(data.name)) errors.name = emptyError;
