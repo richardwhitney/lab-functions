@@ -54,13 +54,17 @@ exports.createTest = (request, response) => {
     turnaroundTime: request.body.turnaroundTime
   };
 
+  const {valid, errors} = validateTestDate(newTest);
+  if (!valid) {
+    return response.status(400).json(errors);
+  }
   db.collection("tests")
     .add(newTest)
     .then(doc => {
       response.json({ message: `Document ${doc.id} created successfully` });
     })
     .catch(err => {
-      response.status(500).json({ error: "Something went wrong" });
+      response.status(500).json({ general: "Something went wrong" });
       console.error(err);
     });
 };

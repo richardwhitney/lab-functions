@@ -40,3 +40,20 @@ exports.validateLoginData = (data) => {
     valid: Object.keys(errors).length === 0
   }
 };
+
+exports.validateTestDate = (data) => {
+  let errors = {};
+  const emptyError = 'Must not be empty';
+  if (isEmpty(data.name)) errors.name = emptyError;
+  if (isEmpty(data.description)) errors.description = emptyError;
+  if (isEmpty(data.referenceRange)) errors.referenceRange = emptyError;
+  if (isEmpty(data.requestForm)) errors.requestForm = emptyError;
+  if (isEmpty(data.specialNotes)) errors.specialNotes = emptyError;
+  if (isEmpty(data.specimenTypeVolume)) errors.specimenTypeVolume = emptyError;
+  if (isEmpty(data.turnaroundTime)) errors.turnaroundTime = emptyError;
+
+  return {
+    errors,
+    valid: Object.keys(errors).length === 0
+  }
+};
