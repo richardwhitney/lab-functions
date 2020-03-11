@@ -7,6 +7,9 @@ const {getAllTests, getTest, createTest, deleteTest} = require('./handlers/tests
 const {signup, login} = require('./handlers/users');
 const FBAuth = require('./utils/fbAuth');
 
+const cors = require('cors');
+app.use(cors());
+
 app.get('/tests', getAllTests);
 app.get('/tests/:testId', getTest);
 app.post('/test', FBAuth, createTest);
