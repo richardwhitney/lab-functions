@@ -73,6 +73,31 @@ exports.createTest = (request, response) => {
     });
 };
 
+exports.updateTest = (request, response) => {
+  const editTest = {
+    name: request.body.name,
+    description: request.body.description,
+    referenceRange: request.body.referenceRange,
+    requestForm: request.body.requestForm,
+    specialNotes: request.body.specialNotes,
+    specimenTypeVolume: request.body.specimenTypeVolume,
+    turnaroundTime: request.body.turnaroundTime
+  };
+  const {valid, errors} = validateTestData(editTest);
+  if (!valid) {
+    return response.status(400).json(errors);
+  }
+  const test = db.doc(`/tests/${request.params.testId}`);
+  test.update(editTest)
+    .then(() => {
+      return response.json({ message: 'Test updated successfully' });
+    })
+    .catch(error => {
+      console.error(error);
+      return response.status(500).json({ error: error.code });
+    })
+};
+
 exports.deleteTest = (request, response) => {
   const test = db.doc(`/tests/${request.params.testId}`);
   test.get()
