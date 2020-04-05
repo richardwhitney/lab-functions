@@ -11,12 +11,14 @@ exports.getAllTests = (request, response) => {
         tests.push({
           testId: doc.id,
           name: doc.data().name,
-          description: doc.data().description,
-          referenceRange: doc.data().referenceRange,
           requestForm: doc.data().requestForm,
-          specialNotes: doc.data().specialNotes,
-          specimenTypeVolume: doc.data().specimenTypeVolume,
-          turnaroundTime: doc.data().turnaroundTime
+          specimenType: doc.data().specimenType,
+          specimenContainer: doc.data().specimenContainer,
+          specimenVolume: doc.data().specimenVolume,
+          specimenRequirements: doc.data().specimenRequirements,
+          turnaroundTime: doc.data().turnaroundTime,
+          phoneAlertLimits: doc.data().phoneAlertLimits,
+          specialNotes: doc.data().specialNotes
         });
       });
       return response.json(tests);
@@ -47,12 +49,14 @@ exports.getTest = (request, response) => {
 exports.createTest = (request, response) => {
   const newTest = {
     name: request.body.name,
-    description: request.body.description,
-    referenceRange: request.body.referenceRange,
     requestForm: request.body.requestForm,
-    specialNotes: request.body.specialNotes,
-    specimenTypeVolume: request.body.specimenTypeVolume,
-    turnaroundTime: request.body.turnaroundTime
+    specimenType: request.body.specimenType,
+    specimenContainer: request.body.specimenContainer,
+    specimenVolume: request.body.specimenVolume,
+    specimenRequirements: request.body.specimenRequirements,
+    turnaroundTime: request.body.turnaroundTime,
+    phoneAlertLimits: request.body.phoneAlertLimits,
+    specialNotes: request.body.specialNotes
   };
 
   const {valid, errors} = validateTestData(newTest);
@@ -76,12 +80,14 @@ exports.createTest = (request, response) => {
 exports.updateTest = (request, response) => {
   const editTest = {
     name: request.body.name,
-    description: request.body.description,
-    referenceRange: request.body.referenceRange,
     requestForm: request.body.requestForm,
-    specialNotes: request.body.specialNotes,
-    specimenTypeVolume: request.body.specimenTypeVolume,
-    turnaroundTime: request.body.turnaroundTime
+    specimenType: request.body.specimenType,
+    specimenContainer: request.body.specimenContainer,
+    specimenVolume: request.body.specimenVolume,
+    specimenRequirements: request.body.specimenRequirements,
+    turnaroundTime: request.body.turnaroundTime,
+    phoneAlertLimits: request.body.phoneAlertLimits,
+    specialNotes: request.body.specialNotes
   };
   const {valid, errors} = validateTestData(editTest);
   if (!valid) {
