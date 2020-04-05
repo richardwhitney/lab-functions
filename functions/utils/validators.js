@@ -42,6 +42,7 @@ exports.validateTestData = (data) => {
   let errors = {};
   const emptyError = 'Must not be empty';
   if (isEmpty(data.name)) errors.name = emptyError;
+  if (isEmpty(data.department)) errors.name = emptyError;
   if (isEmpty(data.requestForm)) errors.requestForm = emptyError;
   if (isEmpty(data.referenceRange)) errors.referenceRange = emptyError;
   if (isEmpty(data.specimenType)) errors.specimenType = emptyError;

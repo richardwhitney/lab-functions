@@ -11,6 +11,7 @@ exports.getAllTests = (request, response) => {
         tests.push({
           testId: doc.id,
           name: doc.data().name,
+          department: doc.data().department,
           requestForm: doc.data().requestForm,
           specimenType: doc.data().specimenType,
           specimenContainer: doc.data().specimenContainer,
@@ -49,6 +50,7 @@ exports.getTest = (request, response) => {
 exports.createTest = (request, response) => {
   const newTest = {
     name: request.body.name,
+    department: request.body.department,
     requestForm: request.body.requestForm,
     specimenType: request.body.specimenType,
     specimenContainer: request.body.specimenContainer,
@@ -80,6 +82,7 @@ exports.createTest = (request, response) => {
 exports.updateTest = (request, response) => {
   const editTest = {
     name: request.body.name,
+    department: request.body.department,
     requestForm: request.body.requestForm,
     specimenType: request.body.specimenType,
     specimenContainer: request.body.specimenContainer,

@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/handlers/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/tests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/handlers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/utils/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/utils/validators.js" afterDir="false" />
-    </list>
+    <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +53,7 @@
       <workItem from="1584218189627" duration="633000" />
       <workItem from="1584639436076" duration="3960000" />
       <workItem from="1585595872390" duration="3107000" />
-      <workItem from="1586099635507" duration="2376000" />
+      <workItem from="1586099635507" duration="2639000" />
     </task>
     <servers />
   </component>
