@@ -42,16 +42,12 @@ exports.validateTestData = (data) => {
   let errors = {};
   const emptyError = 'Must not be empty';
   if (isEmpty(data.name)) errors.name = emptyError;
-  if (isEmpty(data.department)) errors.name = emptyError;
+  if (isEmpty(data.department)) errors.department = emptyError;
   if (isEmpty(data.requestForm)) errors.requestForm = emptyError;
-  if (isEmpty(data.referenceRange)) errors.referenceRange = emptyError;
   if (isEmpty(data.specimenType)) errors.specimenType = emptyError;
   if (isEmpty(data.specimenContainer)) errors.specimenContainer = emptyError;
   if (isEmpty(data.specimenVolume)) errors.specimenVolume = emptyError;
-  if (isEmpty(data.specimenRequirements)) data.specimenRequirements = "N/A";
   if (isEmpty(data.turnaroundTime)) errors.turnaroundTime = emptyError;
-  if (isEmpty(data.phoneAlertLimits)) data.phoneAlertLimits = "N/A";
-  if (isEmpty(data.specialNotes)) data.specialNotes = "N/A";
 
   return {
     errors,
