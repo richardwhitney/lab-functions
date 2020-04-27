@@ -38,3 +38,25 @@ exports.getQuiz = (request, response) => {
       response.status(500).json({ error: err.code });
     })
 };
+
+exports.getQuizResults = (request, response) => {
+  db.collection("quizResults")
+    .orderBy("date")
+    .get()
+    .then(data => {
+      let quizResults = [];
+      data.forEach(doc => {
+        quizResults.push({
+          quizResultId: doc.id,
+          quizName: doc.data().quizName,
+          score: doc.data().score,
+          userEmail: doc.data().userEmail
+        });
+      });
+      return response.json(quizResults);
+    })
+    .catch(err => {
+      console.error("Error" + err);
+      response.status(500).json({ error: err.code });
+    });
+};

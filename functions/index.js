@@ -5,7 +5,7 @@ require('dotenv');
 const app = require('express')();
 const {getAllTests, getTest, createTest, deleteTest, updateTest} = require('./handlers/tests');
 const {signup, login} = require('./handlers/users');
-const {getAllQuizzes, getQuiz} = require('./handlers/quizzes');
+const {getAllQuizzes, getQuiz, getQuizResults} = require('./handlers/quizzes');
 const FBAuth = require('./utils/fbAuth');
 
 const cors = require('cors');
@@ -23,5 +23,6 @@ app.post('/login', login);
 // Quiz routes
 app.get('/quizzes', getAllQuizzes);
 app.get('/quizzes/:quizId', getQuiz);
+app.get('/quizResults', getQuizResults);
 
 exports.api = functions.region('europe-west1').https.onRequest(app);
