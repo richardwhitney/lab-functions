@@ -1,4 +1,4 @@
-const {admin} = require('./admin');
+const {admin, db} = require('./admin');
 
 module.exports = (request, response, next) => {
   let idToken;
@@ -12,6 +12,13 @@ module.exports = (request, response, next) => {
     .then(decodedToken => {
       request.user = decodedToken;
       console.log(decodedToken);
+      return db.collection('users')
+        .where('userId', '==', request.user.uid)
+        .limit(1)
+        .get()
+    })
+    .then(data => {
+      request.user.email = data.docs[0].data().email;
       return next();
     })
     .catch(err => {

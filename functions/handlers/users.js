@@ -2,6 +2,7 @@ const firebase = require('firebase');
 const firebaseConfig = require('../utils/config');
 firebase.initializeApp(firebaseConfig);
 const {validateSignupData, validateLoginData} = require('../utils/validators');
+const {db} = require('../utils/admin');
 
 
 exports.signup = (request, response) => {
@@ -15,14 +16,23 @@ exports.signup = (request, response) => {
   if (!valid) {
     return response.status(400).json(errors);
   }
-  let newToken;
+  let newToken, userId;
   firebase.auth().createUserWithEmailAndPassword(newUser.email, newUser.password)
     .then(data => {
+      userId = data.user.uid;
       return data.user.getIdToken();
     })
     .then((token) => {
       newToken = token;
-      return response.status(201).json({token});
+      const userCredentials = {
+        email: newUser.email,
+        admin: false,
+        userId: userId
+      };
+      return db.doc(`/users/${newUser.email}`).set(userCredentials);
+    })
+    .then(() => {
+      return response.status(201).json({newToken});
     })
     .catch(err => {
       console.error(err);
@@ -55,4 +65,20 @@ exports.login = (request, response) => {
       console.error(err);
       return response.status(403).json({general: 'Credentials not recognised, please try again'});
     });
+};
+
+// Get auth user details
+exports.getAuthenticatedUser = (request, response) => {
+  let userData = {};
+  db.doc(`/users/${request.user.email}`).get()
+    .then(doc => {
+      if (doc.exists) {
+        userData.credentials = doc.data();
+        return response.json(userData);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      return response.status(500).json({ error: err.code });
+    })
 };
