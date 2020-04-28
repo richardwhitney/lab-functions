@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/handlers/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/handlers/quizzes.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/quizzes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/handlers/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/tests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/utils/fbAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/utils/fbAuth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +63,7 @@
       <workItem from="1586890486371" duration="1657000" />
       <workItem from="1587413366820" duration="3606000" />
       <workItem from="1587672083400" duration="3854000" />
-      <workItem from="1587978963041" duration="13450000" />
+      <workItem from="1587978963041" duration="17133000" />
     </task>
     <servers />
   </component>
@@ -75,9 +75,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1647" y="467" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1583178787436" />
-    <state x="25" y="205" width="908" height="1188" key="dock-window-1" timestamp="1587500638021">
+    <state x="116" y="0" width="908" height="1030" key="dock-window-1" timestamp="1588071331234">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="25" y="205" width="908" height="1188" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1587500638021" />
+    <state x="116" y="0" width="908" height="1030" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1588071331234" />
   </component>
 </project>

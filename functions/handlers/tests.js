@@ -70,8 +70,7 @@ exports.createTest = (request, response) => {
     .then(doc => {
       const responseTest = newTest;
       responseTest.testId = doc.id;
-      response.json(responseTest
-      );
+      response.json(responseTest);
     })
     .catch(err => {
       response.status(500).json({ general: "Something went wrong" });

@@ -41,7 +41,7 @@ exports.getQuiz = (request, response) => {
 
 exports.getQuizResults = (request, response) => {
   db.collection("quizResults")
-    .orderBy("date")
+    .orderBy("createdOn")
     .get()
     .then(data => {
       let quizResults = [];
@@ -50,13 +50,33 @@ exports.getQuizResults = (request, response) => {
           quizResultId: doc.id,
           quizName: doc.data().quizName,
           score: doc.data().score,
-          userEmail: doc.data().userEmail
+          userEmail: doc.data().userEmail,
+          createdOn: doc.data().createdOn
         });
       });
       return response.json(quizResults);
     })
     .catch(err => {
       console.error("Error" + err);
+      response.status(500).json({ error: err.code });
+    });
+};
+
+exports.addQuizResult = (request, response) => {
+  const newResult = {
+    createdOn: new Date().toISOString(),
+    quizName: request.body.quizName,
+    score: request.body.score,
+    userEmail: request.body.userEmail
+  };
+  db.collection("quizResults")
+    .add(newResult)
+    .then(doc => {
+      const responseResult = newResult;
+      responseResult.quizResultId = doc.id;
+      response.json(responseResult);
+    })
+    .catch(err => {
       response.status(500).json({ error: err.code });
     });
 };
