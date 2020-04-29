@@ -39,6 +39,25 @@ exports.getQuiz = (request, response) => {
     })
 };
 
+exports.createQuiz = (request, response) => {
+  const newQuiz = {
+    title: request.body.quizName,
+    description: request.body.quizDescription,
+    questions: request.body.questions
+  };
+  db.collection("quizzes")
+    .add(newQuiz)
+    .then(doc => {
+      const responseQuiz = newQuiz;
+      responseQuiz.quizId = doc.id;
+      response.json(responseQuiz);
+    })
+    .catch(err => {
+      response.status(500).json({ general: "Something went wrong" });
+      console.error(err);
+    });
+};
+
 exports.getQuizResults = (request, response) => {
   db.collection("quizResults")
     .orderBy("createdOn")
