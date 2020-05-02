@@ -54,3 +54,20 @@ exports.validateTestData = (data) => {
     valid: Object.keys(errors).length === 0
   }
 };
+
+exports.validateBloodProductData = (data) => {
+  let errors = {};
+  const emptyError = 'Must not be empty';
+  if (isEmpty(data.product)) errors.product = emptyError;
+  if (isEmpty(data.description)) errors.description = emptyError;
+  if (isEmpty(data.shelfLife)) errors.shelfLife = emptyError;
+  if (isEmpty(data.storagePrep)) errors.storagePrep = emptyError;
+  if (isEmpty(data.storageTemp)) errors.storageTemp = emptyError;
+  if (isEmpty(data.testingReq)) errors.testingReq = emptyError;
+  if (isEmpty(data.volume)) errors.volume = emptyError;
+
+  return {
+    errors,
+    valid: Object.keys(errors).length === 0
+  }
+};
