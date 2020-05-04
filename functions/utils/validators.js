@@ -71,3 +71,16 @@ exports.validateBloodProductData = (data) => {
     valid: Object.keys(errors).length === 0
   }
 };
+
+exports.validateContactData = (data) => {
+  let errors = {};
+  const emptyError = 'Must not be empty';
+  if (isEmpty(data.name)) errors.name = emptyError;
+  if (isEmpty(data.phone)) errors.phone = emptyError;
+  if (isEmpty(data.department)) errors.department = emptyError;
+
+  return {
+    errors,
+    valid: Object.keys(errors).length === 0
+  }
+};

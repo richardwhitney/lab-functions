@@ -1,5 +1,5 @@
 const {db} = require('../utils/admin');
-const {validateTestData, validateBloodProductData} = require('../utils/validators');
+const {validateBloodProductData} = require('../utils/validators');
 
 exports.getAllBloodProducts = (request, response) => {
   db.collection("bloodProducts")
@@ -63,7 +63,7 @@ exports.createBloodProduct = (request, response) => {
     .add(newBloodProduct)
     .then(doc => {
       const responseBloodProduct = newBloodProduct;
-      responseTest.productId = doc.id;
+      responseBloodProduct.productId = doc.id;
       response.json(responseBloodProduct);
     })
     .catch(err => {
