@@ -29,7 +29,7 @@ exports.getAllBloodProducts = (request, response) => {
 
 exports.getBloodProduct = (request, response) => {
   let productData = {};
-  db.doc(`/bloodProducts/${request.params.testId}`).get()
+  db.doc(`/bloodProducts/${request.params.productId}`).get()
     .then(doc => {
       if (!doc.exists) {
         return response.status(404).json({error: 'Blood product not found'});
