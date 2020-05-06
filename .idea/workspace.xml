@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/functions/handlers/newsItems.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/utils/validators.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/utils/validators.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
       <workItem from="1587413366820" duration="3606000" />
       <workItem from="1587672083400" duration="3854000" />
       <workItem from="1587978963041" duration="21282000" />
-      <workItem from="1588411882356" duration="14862000" />
+      <workItem from="1588411882356" duration="19362000" />
     </task>
     <servers />
   </component>
@@ -78,9 +79,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="115" y="114" width="908" height="1030" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1588411937519" />
-    <state x="-7" y="700" width="1294" height="707" key="dock-window-2" timestamp="1588717596716">
+    <state x="-7" y="700" width="1294" height="707" key="dock-window-2" timestamp="1588799170207">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="-7" y="700" width="1294" height="707" key="dock-window-2/0.0.2560.1400@0.0.2560.1400" timestamp="1588717596716" />
+    <state x="-7" y="700" width="1294" height="707" key="dock-window-2/0.0.2560.1400@0.0.2560.1400" timestamp="1588799170207" />
   </component>
 </project>

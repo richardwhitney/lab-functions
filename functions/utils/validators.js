@@ -84,3 +84,15 @@ exports.validateContactData = (data) => {
     valid: Object.keys(errors).length === 0
   }
 };
+
+exports.validateNewsData = (data) => {
+  let errors = {};
+  const emptyError = 'Must not be empty';
+  if (isEmpty(data.title)) errors.title = emptyError;
+  if (isEmpty(data.body)) errors.body = emptyError;
+
+  return {
+    errors,
+    valid: Object.keys(errors).length === 0
+  }
+};
