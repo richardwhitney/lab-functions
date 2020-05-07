@@ -9,6 +9,7 @@ const {getAllQuizzes, getQuiz, getQuizResults, addQuizResult, createQuiz} = requ
 const {getAllBloodProducts, getBloodProduct, createBloodProduct, deleteBloodProduct, updateBloodProduct} = require('./handlers/bloodProducts');
 const {getAllContacts, getContact, createContact, deleteContact, updateContact} = require('./handlers/contacts');
 const {getMarkdown, updateMarkdown} = require('./handlers/markdown');
+const {getAllNewsItems, getNewsItem, createNewsItem, deleteNewsItem, updateNewsItem} = require('./handlers/newsItems');
 const FBAuth = require('./utils/fbAuth');
 
 const cors = require('cors');
@@ -44,5 +45,11 @@ app.put('/contact/:contactId', FBAuth, updateContact);
 // Markdown
 app.get('/markdown/:markdownId', FBAuth, getMarkdown);
 app.put('/markdown/:markdownId', FBAuth, updateMarkdown);
+// News item routes
+app.get('/newsItems', FBAuth, getAllNewsItems);
+app.get('/newsItems/:newsItemId', FBAuth, getNewsItem);
+app.post('/newsItem', FBAuth, createNewsItem);
+app.delete('/newsItem/:newsItemId', FBAuth, deleteNewsItem);
+app.put('/newsItem/:newsItemId', FBAuth, updateNewsItem);
 
 exports.api = functions.region('europe-west1').https.onRequest(app);
