@@ -10,6 +10,7 @@ const {getAllBloodProducts, getBloodProduct, createBloodProduct, deleteBloodProd
 const {getAllContacts, getContact, createContact, deleteContact, updateContact} = require('./handlers/contacts');
 const {getMarkdown, updateMarkdown} = require('./handlers/markdown');
 const {getAllNewsItems, getNewsItem, createNewsItem, deleteNewsItem, updateNewsItem} = require('./handlers/newsItems');
+const {getAllClinicalPathways, getClinicalPathway} = require('./handlers/clinicalPathways')
 const FBAuth = require('./utils/fbAuth');
 
 const cors = require('cors');
@@ -51,5 +52,8 @@ app.get('/newsItems/:newsItemId', FBAuth, getNewsItem);
 app.post('/newsItem', FBAuth, createNewsItem);
 app.delete('/newsItem/:newsItemId', FBAuth, deleteNewsItem);
 app.put('/newsItem/:newsItemId', FBAuth, updateNewsItem);
+// Clinical pathway routes
+app.get('/clinicalPathways', FBAuth, getAllClinicalPathways);
+app.get('/clinicalPathways/:clinicalPathwayId', FBAuth, getClinicalPathway);
 
 exports.api = functions.region('europe-west1').https.onRequest(app);
