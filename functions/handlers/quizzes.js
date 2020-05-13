@@ -58,6 +58,23 @@ exports.createQuiz = (request, response) => {
     });
 };
 
+exports.updateQuiz = (request, response) => {
+  const editQuiz = {
+    title: request.body.quizName,
+    description: request.body.quizDescription,
+    questions: request.body.questions
+  };
+  const quiz = db.doc(`/quizzes/${request.params.quizId}`);
+  quiz.update(editQuiz)
+    .then(() => {
+      return response.json({ message: 'Quiz updated successfully' });
+    })
+    .catch(error => {
+      console.error(error);
+      return response.status(500).json({ error: error.code});
+    })
+};
+
 exports.deleteQuiz = (request, response) => {
   const quiz = db.doc(`/quizzes/${request.params.quizId}`);
   quiz.get()

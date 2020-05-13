@@ -5,7 +5,7 @@ require('dotenv');
 const app = require('express')();
 const {getAllTests, getTest, createTest, deleteTest, updateTest} = require('./handlers/tests');
 const {signup, login, getAuthenticatedUser} = require('./handlers/users');
-const {getAllQuizzes, getQuiz, getQuizResults, addQuizResult, deleteQuiz, createQuiz} = require('./handlers/quizzes');
+const {getAllQuizzes, getQuiz, getQuizResults, addQuizResult, deleteQuiz, createQuiz, updateQuiz} = require('./handlers/quizzes');
 const {getAllBloodProducts, getBloodProduct, createBloodProduct, deleteBloodProduct, updateBloodProduct} = require('./handlers/bloodProducts');
 const {getAllContacts, getContact, createContact, deleteContact, updateContact} = require('./handlers/contacts');
 const {getMarkdown, updateMarkdown} = require('./handlers/markdown');
@@ -30,6 +30,7 @@ app.get('/quizzes', FBAuth, getAllQuizzes);
 app.get('/quizzes/:quizId', FBAuth, getQuiz);
 app.post('/quiz', FBAuth, createQuiz);
 app.delete('/quiz/:quizId', FBAuth, deleteQuiz);
+app.put('/quiz/:quizId', FBAuth, updateQuiz);
 app.get('/quizResults', FBAuth, getQuizResults);
 app.post('/quizResults', FBAuth, addQuizResult);
 // Blood product routes
