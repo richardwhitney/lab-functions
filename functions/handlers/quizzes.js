@@ -58,6 +58,24 @@ exports.createQuiz = (request, response) => {
     });
 };
 
+exports.deleteQuiz = (request, response) => {
+  const quiz = db.doc(`/quizzes/${request.params.quizId}`);
+  quiz.get()
+    .then(doc => {
+      if (!doc.exists) {
+        return response.status(404).json({error: 'Quiz not found'});
+      }
+      return quiz.delete();
+    })
+    .then(() => {
+      response.json({message: 'Quiz deleted successfully'});
+    })
+    .catch(err => {
+      console.error(err);
+      return response.status(500).json({error: err.code});
+    })
+};
+
 exports.getQuizResults = (request, response) => {
   db.collection("quizResults")
     .orderBy("createdOn")
