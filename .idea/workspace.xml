@@ -4,7 +4,6 @@
     <list default="true" id="a0367882-5185-4570-92d1-2cca7ee87a87" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/handlers/quizzes.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/handlers/quizzes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/functions/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,8 @@
       <workItem from="1589125599545" duration="841000" />
       <workItem from="1589221190050" duration="682000" />
       <workItem from="1589312628861" duration="4677000" />
-      <workItem from="1589392933137" duration="2414000" />
+      <workItem from="1589392933137" duration="5348000" />
+      <workItem from="1589657965376" duration="609000" />
     </task>
     <servers />
   </component>
@@ -79,10 +79,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1647" y="467" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1583178787436" />
-    <state x="115" y="114" width="908" height="1030" key="dock-window-1" timestamp="1588411937519">
+    <state x="221" y="0" width="908" height="1032" key="dock-window-1" timestamp="1589657980213">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="115" y="114" width="908" height="1030" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1588411937519" />
+    <state x="221" y="0" width="908" height="1032" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" timestamp="1589657980213" />
     <state x="0" y="51" width="1294" height="1347" key="dock-window-2" timestamp="1589395671827">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

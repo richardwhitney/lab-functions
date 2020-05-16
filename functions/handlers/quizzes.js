@@ -60,8 +60,8 @@ exports.createQuiz = (request, response) => {
 
 exports.updateQuiz = (request, response) => {
   const editQuiz = {
-    title: request.body.quizName,
-    description: request.body.quizDescription,
+    title: request.body.title,
+    description: request.body.description,
     questions: request.body.questions
   };
   const quiz = db.doc(`/quizzes/${request.params.quizId}`);
