@@ -11,6 +11,7 @@ exports.getAllQuizzes = (request, response) => {
           quizId: doc.id,
           title: doc.data().title,
           description: doc.data().description,
+          videoUrl: doc.data().videoUrl,
           questions: doc.data().questions
         });
       });
@@ -43,6 +44,7 @@ exports.createQuiz = (request, response) => {
   const newQuiz = {
     title: request.body.quizName,
     description: request.body.quizDescription,
+    videoUrl: request.body.videoUrl,
     questions: request.body.questions
   };
   db.collection("quizzes")
@@ -62,6 +64,7 @@ exports.updateQuiz = (request, response) => {
   const editQuiz = {
     title: request.body.title,
     description: request.body.description,
+    videoUrl: request.body.videoUrl,
     questions: request.body.questions
   };
   const quiz = db.doc(`/quizzes/${request.params.quizId}`);
