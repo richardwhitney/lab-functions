@@ -16,8 +16,8 @@ const FBAuth = require('./utils/fbAuth');
 const cors = require('cors');
 app.use(cors());
 // Test routes
-app.get('/tests', getAllTests);
-app.get('/tests/:testId', getTest);
+app.get('/tests', FBAuth, getAllTests);
+app.get('/tests/:testId', FBAuth, getTest);
 app.post('/test', FBAuth, createTest);
 app.delete('/test/:testId', FBAuth, deleteTest);
 app.put('/test/:testId', FBAuth, updateTest);
